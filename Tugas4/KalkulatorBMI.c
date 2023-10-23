@@ -7,14 +7,16 @@ int main(){
     
     do {
         printf("(1)Laki-laki\n(2)Perempuan\nPilih Jenis Kelamin : "); scanf("%d",&c);
-        while (c>=1 && c<=2) {
-           printf("Masukan Berat Badan : "); scanf("%f",&BB);
-           printf("Masukan Tinggi Badan : "); scanf("%f",&TB);
-           TB/=100;
-           BMI = BB/(TB*TB);
-           c+=3;
+        
+        if (c>=1 && c<=2) {
+            do {
+                printf("Masukan Berat Badan : "); scanf("%f",&BB);
+                printf("Masukan Tinggi Badan : "); scanf("%f",&TB);
+                TB/=100;
+                BMI = BB/(TB*TB);
+            } while (c<1 || c>2);
         }
-        c-=3;
+
         switch (c)
         {
         case 1 :
@@ -36,11 +38,7 @@ int main(){
             }
             break;
         default:
-            printf("Pilihan mu ga ada, ketik angka 1 atau 2 untuk memilih jenis kelamin");
-            system("cls");
-            printf("lanjut ga nih?? klo lanjut :");
-            system("pause");
-            system("cls");
+            printf("Pilihan mu ga ada, ketik angka 1 atau 2 untuk memilih jenis kelamin\n");
         }
     } while (c<1 || c>2);
 }
