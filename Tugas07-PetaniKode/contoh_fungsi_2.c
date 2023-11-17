@@ -8,4 +8,6 @@ void say_hello(){
 void main(){
     // memanggil fungsi say_hello()
     say_hello();
+    say_hello();
+    say_hello();
 }
