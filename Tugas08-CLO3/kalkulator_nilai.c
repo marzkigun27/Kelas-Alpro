@@ -2,10 +2,11 @@
 
 char nama[30],nim[30];
 char huruf[7][7] = {"A", "AB", "B", "BC", "C", "D", "E"};
-int nilaiTugas, nilaiQuiz, nilaiUTS, nilaiUAS, nilaiAkhir,mutuHuruf,keterangan;
+int nilaiTugas, nilaiQuiz, nilaiUTS, nilaiUAS, nilaiAkhir,mutuHuruf;
 
 int calcNIlai(int nilaiTugas, int nilaiQuiz, int nilaiUTS, int nilaiUAS) {
-    nilaiAkhir = ((nilaiTugas*10)/100) + ((nilaiQuiz*20)/100) + ((nilaiUTS*30)/100) + ((nilaiUAS*40)/100);
+    nilaiAkhir = ((nilaiTugas*10)/100) + ((nilaiQuiz*20)/100) + 
+                ((nilaiUTS*30)/100) + ((nilaiUAS*40)/100);
 
     return nilaiAkhir;
 }
@@ -21,8 +22,8 @@ void displayAkhir(){
     printf("Nilai Akhir\t: %d\n", nilaiAkhir);
     printf("Mutu Huruf\t: %s\n", huruf[mutuHuruf]);
 
-    if(mutuHuruf >= 0 && mutuHuruf <= 3) printf("Keterangan\t: Lulus\n");
-    if(mutuHuruf >= 4 && mutuHuruf <= 6) printf("Keterangan\t: Tidak lulus\n");
+    if (mutuHuruf >= 0 && mutuHuruf <= 3) printf("Keterangan\t: Lulus\n");
+    if (mutuHuruf >= 4 && mutuHuruf <= 6) printf("Keterangan\t: Tidak lulus\n");
 }
 
 int main(){
@@ -32,6 +33,7 @@ int main(){
     printf("Masukan nilai quiz\t: "); scanf("%d", &nilaiQuiz);
     printf("Masukan nilai UTS\t: "); scanf("%d", &nilaiUTS);
     printf("Masukan nilai UAS\t: "); scanf("%d", &nilaiUAS);
+    
     nilaiAkhir = calcNIlai(nilaiTugas,nilaiQuiz,nilaiUTS,nilaiUAS); 
     mutuHuruf = calcNIlai(nilaiTugas,nilaiQuiz,nilaiUTS,nilaiUAS);
 
@@ -42,8 +44,6 @@ int main(){
     if (mutuHuruf > 50 && mutuHuruf <= 60) mutuHuruf = 4;
     if (mutuHuruf >= 45 && mutuHuruf <= 50) mutuHuruf = 5;
     if (mutuHuruf >= 0 && mutuHuruf < 45) mutuHuruf = 6;
-
-    keterangan = mutuHuruf;
 
     displayAkhir();
 }
